@@ -31,7 +31,16 @@ public class MainActivity extends AppCompatActivity {
 
     public void tapHippo(View view) {
         n += 1;
-        textCount.setText("Потапано " + n + " раз");
+
+        if(n%10>1 && n%10<5 && n/10%10!=1){
+            textCount.setText("Потапано " + n + " раза");
+        } else {
+            textCount.setText("Потапано " + n + " раз");
+        }
+
+        //String s = "Потапано " + n + ((n%10>1 && n%10<5 && n/10%10!=1)?" раза":" раз");
+        //textCount.setText(s);
+
         switch (n){
             case 10: textTitle.setText("Хорошо тапаешь! Продолжай!"); break;
             case 20: textTitle.setText("Да ты просто гений!"); break;
