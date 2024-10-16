@@ -12,6 +12,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
     int n = 0;
+    TextView textTitle;
     TextView textCount;
 
     @Override
@@ -24,11 +25,18 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        textTitle = findViewById(R.id.textView2);
         textCount = findViewById(R.id.textView3);
     }
 
     public void tapHippo(View view) {
         n += 1;
         textCount.setText("Потапано " + n + " раз");
+        switch (n){
+            case 10: textTitle.setText("Хорошо тапаешь! Продолжай!"); break;
+            case 20: textTitle.setText("Да ты просто гений!"); break;
+            case 30: textTitle.setText("Ты крут!"); break;
+            default: textTitle.setText("Потапай бегемота!");
+        }
     }
 }
